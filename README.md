@@ -127,3 +127,55 @@
 
   * **Code:** 500 SERVER ERROR <br />
     **Content:** `{"message": "Unexpected error"}`
+
+
+### Create a new issue
+
+* **URL**
+
+  /report.php
+
+* **Method:**
+
+  `POST`
+
+* **URL Params**
+
+  **Required:**
+
+  There are no required URL params
+
+  **Optional:**
+  
+  There are no optional URL params
+
+* **Body Data**
+
+  **Required**: <br />
+  ```json
+  {
+    "name": "String",
+    "department": "String",
+    "title": "String",
+    "description": "String",
+    "severity": int,
+    "tags": [int, int, int]
+  }
+  ```
+  
+* **Success Response:**
+
+    * **Code:** 201 <br />
+      **Content:** <br />
+
+```json
+{"message": "Issue created"}
+```
+
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{"message": "Invalid issue data"}`
+
+  * **Code:** 500 SERVER ERROR <br />
+    **Content:** `{"message": "Unexpected error"}`
