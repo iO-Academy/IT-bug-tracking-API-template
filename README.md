@@ -261,7 +261,7 @@
       **Content:** <br />
 
 ```json
-{"message": "Issue created"}
+{"message": "Issue created", "id": int}
 ```
 
 * **Error Response:**
@@ -308,7 +308,7 @@
       **Content:** <br />
 
 ```json
-{"message": "Tag created"}
+{"message": "Tag created", "id": int}
 ```
 
 * **Error Response:**
@@ -355,7 +355,7 @@
       **Content:** <br />
 
 ```json
-{"message": "Comment added"}
+{"message": "Comment added", "id": int}
 ```
 
 * **Error Response:**
