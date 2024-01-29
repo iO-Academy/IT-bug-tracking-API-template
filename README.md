@@ -20,9 +20,9 @@
 
   **Optional:**
   
-  `tag=[string]` - filters issues by tag  
+  `tag=string` - filters issues by tag  
   `severity=[comma seperated ints]` - filters issues by severity  
-  `order=[string]` - orders returned issues, options: `oldest`, `severity`, `comments`. Defaults to most recent first when left blank  
+  `order=string` - orders returned issues, options: `oldest`, `severity`, `comments`. Defaults to most recent first when left blank  
   
 * **Success Response:**
 
@@ -81,7 +81,7 @@
 
   **Required:**
 
-  `id=[int]` - id of the issue to return
+  `id=int` - id of the issue to return
 
   **Optional:**
   
@@ -315,6 +315,53 @@
 
   * **Code:** 400 BAD REQUEST <br />
     **Content:** `{"message": "Invalid tag data"}`
+
+  * **Code:** 500 SERVER ERROR <br />
+    **Content:** `{"message": "Unexpected error"}`
+
+### Add a new comment
+
+* **URL**
+
+  /comment.php
+
+* **Method:**
+
+  `POST`
+
+* **URL Params**
+
+  **Required:**
+
+  `id=int` - id of the issue to add a comment to
+
+  **Optional:**
+  
+  There are no optional URL params
+
+* **Body Data**
+
+  **Required**: <br />
+  ```json
+  {
+    "name": "String",
+    "comment": "String"
+  }
+  ```
+  
+* **Success Response:**
+
+    * **Code:** 201 <br />
+      **Content:** <br />
+
+```json
+{"message": "Comment added"}
+```
+
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{"message": "Invalid comment data"}`
 
   * **Code:** 500 SERVER ERROR <br />
     **Content:** `{"message": "Unexpected error"}`
