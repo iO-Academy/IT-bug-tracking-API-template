@@ -365,3 +365,44 @@
 
   * **Code:** 500 SERVER ERROR <br />
     **Content:** `{"message": "Unexpected error"}`
+
+
+### Mark an issue as complete
+
+* **URL**
+
+  /complete.php
+
+* **Method:**
+
+  `GET`
+
+* **URL Params**
+
+  **Required:**
+
+  `id=string` - id of the issue to mark as complete
+
+  **Optional:**
+  
+  No optional URL params
+  
+* **Success Response:**
+
+    * **Code:** 200 <br />
+      **Content:** <br />
+
+```json
+{"message": "Issue <ID> has been completed"}
+```
+
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{"message": "Missing issue id"}`
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{"message": "Unknown issue id"}`
+
+  * **Code:** 500 SERVER ERROR <br />
+    **Content:** `{"message": "Unexpected error"}`
