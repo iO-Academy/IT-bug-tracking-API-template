@@ -37,7 +37,7 @@
       "title": "Title of the ticket",
       "summary": "first 100 characters of issue description",
       "severity": "Moderate",
-      "tags": ["tag 1", "tag 2", "tag 3"],
+      "tags": [{"name": "Tag 1","id": 1}, {"name": "Tag 2","id": 2}],
       "date_created": "01/05/2023",
       "comment_count": 3
       
@@ -47,7 +47,7 @@
       "title": "Title of the ticket",
       "summary": "first 100 characters of issue description",
       "severity": "Low",
-      "tags": ["tag 1", "tag 2", "tag 3"],
+      "tags": [{"name": "Tag 1","id": 1}, {"name": "Tag 2","id": 2}],
       "date_created": "01/05/2023",
       "comment_count": 12
     }
