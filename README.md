@@ -21,7 +21,7 @@
   **Optional:**
   
   `tag=[string]` - filters issues by tag
-  `severity=[comma seperated ids]` - filters issues by severity
+  `severity=[comma seperated ints]` - filters issues by severity
   `order=[string]` - orders returned issues, options: `oldest`, `severity`, `comments`. Defaults to most recent first when left blank
   
 * **Success Response:**
@@ -63,6 +63,67 @@
 
   * **Code:** 400 BAD REQUEST <br />
     **Content:** `{"message": "Unknown order parameter"}`
+
+  * **Code:** 500 SERVER ERROR <br />
+    **Content:** `{"message": "Unexpected error"}`
+
+### Return a single issue
+
+* **URL**
+
+  /issue.php
+
+* **Method:**
+
+  `GET`
+
+* **URL Params**
+
+  **Required:**
+
+  `id=[int]` - id of the issue to return
+
+  **Optional:**
+  
+  There are no optional URL params
+  
+* **Success Response:**
+
+    * **Code:** 200 <br />
+      **Content:** <br />
+
+```json
+{
+  "id": 1,
+  "title": "Title of the ticket",
+  "severity": "Moderate",
+  "tags": ["tag 1", "tag 2", "tag 3"],
+  "date_created": "01/05/2023",
+  "comment_count": 3,
+  "reporter": {
+    "name": "Sarah Dunkin",
+    "department": "Operations"
+  },
+  "description": "Bombay. Tabby tiger american bobtail cornish rex. Ocicat tom kitten cougar. Donskoy tomcat russian blue yet sphynx.",
+  "comments": [
+    {
+      "name": "Amy Robinson",
+      "comment": "Lorum ipsum delor vadot",
+      "date_created": "01/05/2023 13:00"
+    },
+    {
+      "name": "Amy Robinson",
+      "comment": "Lorum ipsum delor vadot",
+      "date_created": "01/05/2023 13:02"
+    }
+  ]
+}
+```
+
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{"message": "Unknown issue id"}`
 
   * **Code:** 500 SERVER ERROR <br />
     **Content:** `{"message": "Unexpected error"}`
