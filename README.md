@@ -35,6 +35,7 @@
     {
       "id": 1,
       "title": "Title of the ticket",
+      "summary": "first 100 characters of issue description",
       "severity": "Moderate",
       "tags": ["tag 1", "tag 2", "tag 3"],
       "date_created": "01/05/2023",
@@ -44,6 +45,7 @@
     {
       "id": 2,
       "title": "Title of the ticket",
+      "summary": "first 100 characters of issue description",
       "severity": "Low",
       "tags": ["tag 1", "tag 2", "tag 3"],
       "date_created": "01/05/2023",
