@@ -175,7 +175,7 @@
     **Content:** `{"message": "Unexpected error"}`
 
 
-### Return all tags
+### Return all severities
 
 * **URL**
 
