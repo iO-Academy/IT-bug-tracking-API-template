@@ -156,27 +156,14 @@
 
 ```json
 {
-  "id": 1,
-  "title": "Title of the ticket",
-  "severity": "Moderate",
-  "tags": ["tag 1", "tag 2", "tag 3"],
-  "date_created": "01/05/2023",
-  "comment_count": 3,
-  "reporter": {
-    "name": "Sarah Dunkin",
-    "department": "Operations"
-  },
-  "description": "Bombay. Tabby tiger american bobtail cornish rex. Ocicat tom kitten cougar. Donskoy tomcat russian blue yet sphynx.",
-  "comments": [
+  "tags": [
     {
-      "name": "Amy Robinson",
-      "comment": "Lorum ipsum delor vadot",
-      "date_created": "01/05/2023 13:00"
+      "name": "Tag 1",
+      "id": 1
     },
     {
-      "name": "Amy Robinson",
-      "comment": "Lorum ipsum delor vadot",
-      "date_created": "01/05/2023 13:02"
+      "name": "Tag 2",
+      "id": 2
     }
   ]
 }
@@ -184,12 +171,55 @@
 
 * **Error Response:**
 
-  * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{"message": "Unknown issue id"}`
-
   * **Code:** 500 SERVER ERROR <br />
     **Content:** `{"message": "Unexpected error"}`
 
+
+### Return all tags
+
+* **URL**
+
+  /severities.php
+
+* **Method:**
+
+  `GET`
+
+* **URL Params**
+
+  **Required:**
+
+  There are no optional URL params
+
+  **Optional:**
+  
+  There are no optional URL params
+  
+* **Success Response:**
+
+    * **Code:** 200 <br />
+      **Content:** <br />
+
+```json
+{
+  "severities": [
+    {
+      "name": "Critical",
+      "id": 1
+    },
+    {
+      "name": "Severe",
+      "id": 2
+    }
+  ]
+}
+```
+
+* **Error Response:**
+
+  * **Code:** 500 SERVER ERROR <br />
+    **Content:** `{"message": "Unexpected error"}`
+    
 
 ### Create a new issue
 
@@ -238,6 +268,53 @@
 
   * **Code:** 400 BAD REQUEST <br />
     **Content:** `{"message": "Invalid issue data"}`
+
+  * **Code:** 500 SERVER ERROR <br />
+    **Content:** `{"message": "Unexpected error"}`
+
+
+### Create a new tag
+
+* **URL**
+
+  /tag.php
+
+* **Method:**
+
+  `POST`
+
+* **URL Params**
+
+  **Required:**
+
+  There are no required URL params
+
+  **Optional:**
+  
+  There are no optional URL params
+
+* **Body Data**
+
+  **Required**: <br />
+  ```json
+  {
+    "name": "Tag"
+  }
+  ```
+  
+* **Success Response:**
+
+    * **Code:** 201 <br />
+      **Content:** <br />
+
+```json
+{"message": "Tag created"}
+```
+
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{"message": "Invalid tag data"}`
 
   * **Code:** 500 SERVER ERROR <br />
     **Content:** `{"message": "Unexpected error"}`
