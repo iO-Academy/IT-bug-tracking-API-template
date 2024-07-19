@@ -1,4 +1,4 @@
-# IT-bug-tracking-API-template
+# IT-bug-tracking-API-demo
 
 # API documentation
 
@@ -275,7 +275,7 @@
     **Content:** `{"message": "Unexpected error"}`
 
 
-### Create a new tag
+### Add a tag to an issue
 
 * **URL**
 
@@ -300,7 +300,8 @@
   **Required**: <br />
   ```json
   {
-    "name": "Tag"
+    "issue_id": int,
+    "tag_id": int
   }
   ```
   
@@ -310,13 +311,19 @@
       **Content:** <br />
 
 ```json
-{"message": "Tag created", "id": int}
+{"message": "Tag '<Tag Name>' added to issue <issue_id>"}
 ```
 
 * **Error Response:**
 
   * **Code:** 400 BAD REQUEST <br />
     **Content:** `{"message": "Invalid tag data"}`
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{"message": "Unknown issue"}`
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{"message": "Unknown tag"}`
 
   * **Code:** 500 SERVER ERROR <br />
     **Content:** `{"message": "Unexpected error"}`
