@@ -21,7 +21,6 @@
   **Optional:**
   
   * `completed=[0 or 1]` - filters issues by completion
-  * `tag=int` - filters issues by tag  
   * `severity=[comma seperated ints]` - filters issues by severity  
   * `order=string` - orders returned issues, options: `oldest`, `severity`, `comments`. Defaults to most recent first when left blank  
   
@@ -38,7 +37,6 @@
       "title": "Title of the ticket",
       "summary": "first 100 characters of issue description",
       "severity": "Moderate",
-      "tags": ["tag 1", "tag 2", "tag 3"],
       "date_created": "01/05/2023",
       "comment_count": 3,
       "completed": false
@@ -48,7 +46,6 @@
       "title": "Title of the ticket",
       "summary": "first 100 characters of issue description",
       "severity": "Low",
-      "tags": ["tag 1", "tag 2", "tag 3"],
       "date_created": "01/05/2023",
       "comment_count": 12,
       "completed": true
@@ -58,9 +55,6 @@
 ```
 
 * **Error Response:**
-
-  * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{"message": "Unknown tag filter"}`
 
   * **Code:** 400 BAD REQUEST <br />
     **Content:** `{"message": "Unknown severity filter"}`
@@ -101,7 +95,6 @@
   "id": 1,
   "title": "Title of the ticket",
   "severity": "Moderate",
-  "tags": ["tag 1", "tag 2", "tag 3"],
   "date_created": "01/05/2023",
   "comment_count": 3,
   "reporter": "Sarah Dunkin",
@@ -129,53 +122,6 @@
 
   * **Code:** 500 SERVER ERROR <br />
     **Content:** `{"message": "Unexpected error"}`
-
-
-### Return all tags
-
-* **URL**
-
-  /tags.php
-
-* **Method:**
-
-  `GET`
-
-* **URL Params**
-
-  **Required:**
-
-  There are no optional URL params
-
-  **Optional:**
-  
-  There are no optional URL params
-  
-* **Success Response:**
-
-    * **Code:** 200 <br />
-      **Content:** <br />
-
-```json
-{
-  "tags": [
-    {
-      "name": "Tag 1",
-      "id": 1
-    },
-    {
-      "name": "Tag 2",
-      "id": 2
-    }
-  ]
-}
-```
-
-* **Error Response:**
-
-  * **Code:** 500 SERVER ERROR <br />
-    **Content:** `{"message": "Unexpected error"}`
-
 
 ### Return all severities
 
@@ -252,8 +198,7 @@
     "department": int,
     "title": "String",
     "description": "String",
-    "severity": int,
-    "tags": [int, int, int]
+    "severity": int
   }
   ```
   
@@ -274,52 +219,6 @@
   * **Code:** 500 SERVER ERROR <br />
     **Content:** `{"message": "Unexpected error"}`
 
-
-### Create a new tag
-
-* **URL**
-
-  /tag.php
-
-* **Method:**
-
-  `POST`
-
-* **URL Params**
-
-  **Required:**
-
-  There are no required URL params
-
-  **Optional:**
-  
-  There are no optional URL params
-
-* **Body Data**
-
-  **Required**: <br />
-  ```json
-  {
-    "name": "Tag"
-  }
-  ```
-  
-* **Success Response:**
-
-    * **Code:** 201 <br />
-      **Content:** <br />
-
-```json
-{"message": "Tag created", "id": int}
-```
-
-* **Error Response:**
-
-  * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{"message": "Invalid tag data"}`
-
-  * **Code:** 500 SERVER ERROR <br />
-    **Content:** `{"message": "Unexpected error"}`
 
 ### Add a new comment
 
