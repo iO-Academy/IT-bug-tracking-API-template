@@ -20,9 +20,10 @@
 
   **Optional:**
   
-  `tag=string` - filters issues by tag  
-  `severity=[comma seperated ints]` - filters issues by severity  
-  `order=string` - orders returned issues, options: `oldest`, `severity`, `comments`. Defaults to most recent first when left blank  
+  * `completed=[0 or 1]` - filters issues by completion
+  * `tag=int` - filters issues by tag  
+  * `severity=[comma seperated ints]` - filters issues by severity  
+  * `order=string` - orders returned issues, options: `oldest`, `severity`, `comments`. Defaults to most recent first when left blank  
   
 * **Success Response:**
 
@@ -37,19 +38,20 @@
       "title": "Title of the ticket",
       "summary": "first 100 characters of issue description",
       "severity": "Moderate",
-      "tags": [{"name": "Tag 1","id": 1}, {"name": "Tag 2","id": 2}],
+      "tags": ["tag 1", "tag 2", "tag 3"],
       "date_created": "01/05/2023",
-      "comment_count": 3
-      
+      "comment_count": 3,
+      "completed": false
     },
     {
       "id": 2,
       "title": "Title of the ticket",
       "summary": "first 100 characters of issue description",
       "severity": "Low",
-      "tags": [{"name": "Tag 1","id": 1}, {"name": "Tag 2","id": 2}],
+      "tags": ["tag 1", "tag 2", "tag 3"],
       "date_created": "01/05/2023",
-      "comment_count": 12
+      "comment_count": 12,
+      "completed": true
     }
   ]
 }
@@ -102,10 +104,8 @@
   "tags": ["tag 1", "tag 2", "tag 3"],
   "date_created": "01/05/2023",
   "comment_count": 3,
-  "reporter": {
-    "name": "Sarah Dunkin",
-    "department": "Operations"
-  },
+  "reporter": "Sarah Dunkin",
+  "department": 1,
   "description": "Bombay. Tabby tiger american bobtail cornish rex. Ocicat tom kitten cougar. Donskoy tomcat russian blue yet sphynx.",
   "comments": [
     {
@@ -249,7 +249,7 @@
   ```json
   {
     "name": "String",
-    "department": "String",
+    "department": int,
     "title": "String",
     "description": "String",
     "severity": int,
